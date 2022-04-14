@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 18:41:40 by amiguez           #+#    #+#             */
-/*   Updated: 2022/03/02 18:55:02 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/04/14 13:44:59 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int		ft_calcsize_p(unsigned long long int nb);
 //#########  GNL  ##########//
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 0
+#  define BUFFER_SIZE 5
 # endif
 
 char	*get_next_line(int fd);

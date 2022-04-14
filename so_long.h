@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 05:43:57 by amiguez           #+#    #+#             */
-/*   Updated: 2022/04/12 08:18:39 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/04/14 13:07:52 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,22 @@
 # include <fcntl.h> // open , close
 # include <unistd.h> // write , read
 
+typedef struct s_long
+{
+	void	*ptr_mlx;
+	void	*ptr_win;
+	char	**map;
+}			t_long;
+
 // *************************** //
 
 //main.c//
 
-int	main(int argc, char **argv);
+int		main(int argc, char **argv);
+
+//parsec.c//
+
+void	ft_parsec(int argc, char **argv);
 
 // *************************** //
 

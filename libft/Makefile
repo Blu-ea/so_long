@@ -6,7 +6,7 @@
 #    By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/09 06:10:49 by amiguez           #+#    #+#              #
-#    Updated: 2022/03/02 19:10:54 by amiguez          ###   ########.fr        #
+#    Updated: 2022/04/14 13:07:00 by amiguez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -107,7 +107,7 @@ NORMINETTE = $(shell norminette $(SRCS) | grep -i 'Error')
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(INCS)
 	$(AR) $(NAME) $(OBJS)
 	printf "$(ERASE)Compiling Libft : $(GREEN) Done $(END)\n"
 
