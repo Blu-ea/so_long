@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 11:28:07 by amiguez           #+#    #+#             */
-/*   Updated: 2022/04/25 16:10:02 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/04/25 17:24:02 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,9 @@ int	ft_content_map(t_long game)
 	t_count	count;
 
 	i = 0;
+	count.p = 0;
+	count.e = 0;
+	count.c = 0;
 	while (game.info_map.map[i])
 	{
 		if (game.info_map.map[i] == 'C')
