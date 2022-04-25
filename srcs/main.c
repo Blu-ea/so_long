@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 05:31:39 by amiguez           #+#    #+#             */
-/*   Updated: 2022/04/25 12:24:34 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/04/25 15:03:23 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ int	main(int argc, char **argv)
 	t_long	game;
 
 	ft_parsec(argc, argv, &game);
-	debug(0, game);
+	// debug(0, game);
+	free(game.info_map.map);
 }

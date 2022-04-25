@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 18:41:40 by amiguez           #+#    #+#             */
-/*   Updated: 2022/04/25 11:22:21 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/04/25 13:54:11 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <unistd.h> // write et read
 # include <limits.h> // OPEN_MAX
 # include <stdarg.h>
+# include <stdio.h> //printf
 
 typedef struct s_list
 {

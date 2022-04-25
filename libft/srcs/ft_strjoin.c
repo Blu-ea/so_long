@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:57:32 by amiguez           #+#    #+#             */
-/*   Updated: 2022/04/25 13:48:02 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/04/25 13:55:04 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*s_ret;
 	int		i;
 	int		j;
-
 
 	if (!s1 || !s2)
 		return (NULL);

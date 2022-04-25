@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 12:15:48 by amiguez           #+#    #+#             */
-/*   Updated: 2022/04/25 12:27:12 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/04/25 14:56:19 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	print_map(t_map info)
 {
 	ft_putstr_fd(info.map, 1);
+	write(1, "\n", 1);
 }
 
 //index = 0 -> print the map

@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 05:43:57 by amiguez           #+#    #+#             */
-/*   Updated: 2022/04/25 12:23:09 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/04/25 15:02:56 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_error(char *str, void *dump);
 //     parsec.c      //
 
 void	ft_parsec(int argc, char **argv, t_long *game);
-int		ft_has_wall(char *line);
+int		ft_has_wall(char *line, int len);
 
 // *************************** //
 // ********* debug.c ********* //
