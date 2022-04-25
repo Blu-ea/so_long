@@ -18,6 +18,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		i;
 	int		j;
 
+	printf("s1 = '%s' \ns2 = '%s'\n", s1, s2);
 	if (!s1 || !s2)
 		return (NULL);
 	i = -1;

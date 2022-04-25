@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 05:43:57 by amiguez           #+#    #+#             */
-/*   Updated: 2022/04/14 13:07:52 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/04/25 12:23:09 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,37 @@
 # include <fcntl.h> // open , close
 # include <unistd.h> // write , read
 
+typedef struct s_map
+{
+	char	*map;
+	int		size_x;
+	int		size_y;
+}			t_map;
+
 typedef struct s_long
 {
 	void	*ptr_mlx;
 	void	*ptr_win;
-	char	**map;
+	t_map	info_map;
 }			t_long;
 
 // *************************** //
 
-//main.c//
+//      main.c       //
 
 int		main(int argc, char **argv);
+void	ft_error(char *str, void *dump);
 
-//parsec.c//
+//     parsec.c      //
 
-void	ft_parsec(int argc, char **argv);
+void	ft_parsec(int argc, char **argv, t_long *game);
+int		ft_has_wall(char *line);
 
 // *************************** //
+// ********* debug.c ********* //
 
+void	print_map(t_map info);
+void	debug(int index, t_long game);
+
+// *************************** //
 #endif

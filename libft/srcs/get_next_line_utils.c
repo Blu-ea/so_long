@@ -21,3 +21,32 @@ char	*ret_nl(char *ln, int i)
 	}
 	return (ln);
 }
+
+char	*ft_strjoin_gnl(char *line, char *temp)
+{
+	char	*s_ret;
+	int		i;
+	int		j;
+
+	if (!line)
+		return (ft_strdup(temp));
+	i = -1;
+	j = 0;
+	s_ret = malloc (sizeof(char) * (ft_strlen(line) + ft_strlen(temp) + 1));
+	if (!s_ret)
+		return (NULL);
+	while (line[++i])
+	{
+		s_ret[j] = line [i];
+		j++;
+	}
+	i = -1;
+	while (temp[++i])
+	{
+		s_ret[j] = temp[i];
+		j++;
+	}
+	s_ret[j] = '\0';
+	free(line);
+	return (s_ret);
+}

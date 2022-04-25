@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   debug.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/12 05:31:39 by amiguez           #+#    #+#             */
-/*   Updated: 2022/04/25 12:24:34 by amiguez          ###   ########.fr       */
+/*   Created: 2022/04/25 12:15:48 by amiguez           #+#    #+#             */
+/*   Updated: 2022/04/25 12:27:12 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	ft_error(char *str, void *dump)
+void	print_map(t_map info)
 {
-	if (dump != NULL)
-		free(dump);
-	ft_putstr_fd(str, 2);
-	exit(EXIT_FAILURE);
+	ft_putstr_fd(info.map, 1);
 }
 
-int	main(int argc, char **argv)
+//index = 0 -> print the map
+//index = 1 -> printf a test for segfault
+void	debug(int index, t_long game)
 {
-	t_long	game;
-
-	ft_parsec(argc, argv, &game);
-	debug(0, game);
+	if (index == 0)
+		print_map(game.info_map);
+	if (index == 1)
+		printf("test Je suis ici \n");
+	if (index == 2)
+		printf("je suis un autre test \n");	
 }

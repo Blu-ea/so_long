@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 18:41:40 by amiguez           #+#    #+#             */
-/*   Updated: 2022/04/14 13:44:59 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/04/25 11:22:21 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_strrchr(const char *s, int c);
 
 char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_str_malloc_join(char **s1, char **s2);
 char	**ft_split(char const *s, char c);;
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strtrim(char const *s1, char const *set);
@@ -100,7 +101,7 @@ int		ft_calcsize_p(unsigned long long int nb);
 char	*get_next_line(int fd);
 int		chek_nl(char *line);
 int		ft_strlen(const char *str);
-char	*ft_strdup(const char *src);
+char	*ft_strjoin_gnl(char *line, char *temp);
 char	*ret_nl(char *lni, int i);
 void	set_nl(char *line, char stat[BUFFER_SIZE + 1]);
 

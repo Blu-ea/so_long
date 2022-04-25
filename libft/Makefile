@@ -6,7 +6,7 @@
 #    By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/09 06:10:49 by amiguez           #+#    #+#              #
-#    Updated: 2022/04/14 13:07:00 by amiguez          ###   ########.fr        #
+#    Updated: 2022/04/25 12:36:10 by amiguez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ LST_SRCS := ft_atoi.c\
 			ft_strdup.c\
 			ft_striteri.c\
 			ft_strjoin.c\
+			ft_strjoin_malloc.c\
 			ft_strlcat.c\
 			ft_strlcpy.c\
 			ft_strlen.c\
@@ -80,7 +81,7 @@ INCS	:=	$(addprefix $(DIR_INCS)/,$(LST_INCS))
 # /////////////////////////////////
 
 CC		:= gcc
-CFLAGS	:= -Wall -Werror -Wextra
+CFLAGS	:= #-Wall -Werror -Wextra
 AR		:= ar rcs
 
 # /////////////////////////////////

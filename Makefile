@@ -6,7 +6,7 @@
 #    By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/12 04:32:58 by amiguez           #+#    #+#              #
-#    Updated: 2022/04/14 13:11:03 by amiguez          ###   ########.fr        #
+#    Updated: 2022/04/25 12:15:43 by amiguez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ NAME		:= so_long
 # /////////////////////////////////
 
 LST_SRCS	:=	main.c\
-				parsec.c
+				parsec.c\
+				debug.c
 LST_OBJS	:=	$(LST_SRCS:.c=.o)
 LST_INCS	:=	so_long.h
 AR_LIBFT	:=	libft.a
