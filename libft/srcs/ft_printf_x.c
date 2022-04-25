@@ -6,11 +6,11 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 08:04:15 by amiguez           #+#    #+#             */
-/*   Updated: 2022/03/02 19:13:58 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/04/25 13:49:30 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 int	ft_convertbase_x(unsigned int nb, char *base)
 {

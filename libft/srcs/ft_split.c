@@ -6,11 +6,11 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 23:31:37 by amiguez           #+#    #+#             */
-/*   Updated: 2021/11/10 07:53:59 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/04/25 13:49:30 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 static int	ft_is_charset(char str, char *charset)
 {

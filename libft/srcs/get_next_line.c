@@ -6,11 +6,11 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 16:31:06 by amiguez           #+#    #+#             */
-/*   Updated: 2022/04/25 13:13:34 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/04/25 13:47:42 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 char	*get_next_line(int fd)
 {
@@ -28,10 +28,8 @@ char	*get_next_line(int fd)
 		line = ft_strdup(stat[fd]);
 		*stat[fd] = 0;
 	}
-	printf ("Je suis dans gnl '%d'\n", BUFFER_SIZE);
 	while (chek_nl(line) == -1 && i == BUFFER_SIZE)
 	{
-		printf ("line at start boucle = %s\n", line);
 		i = read(fd, temp, BUFFER_SIZE);
 		if (i <= 0)
 			return (ret_nl(line, i));
@@ -48,10 +46,8 @@ int	chek_nl(char *line)
 	int	i;
 
 	i = 0;
-	printf("test line = %s\n", line);
 	if (!line)
 		return (-1);
-	
 	while (line[i])
 	{
 		if (line[i] == '\n')

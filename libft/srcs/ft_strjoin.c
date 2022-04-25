@@ -6,11 +6,11 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:57:32 by amiguez           #+#    #+#             */
-/*   Updated: 2021/11/10 18:48:36 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/04/25 13:48:02 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -18,7 +18,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		i;
 	int		j;
 
-	printf("s1 = '%s' \ns2 = '%s'\n", s1, s2);
+
 	if (!s1 || !s2)
 		return (NULL);
 	i = -1;
