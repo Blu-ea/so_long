@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 12:15:48 by amiguez           #+#    #+#             */
-/*   Updated: 2022/04/25 14:56:19 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/04/25 15:41:42 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 void	print_map(t_map info)
 {
+	printf ("==== debug map ====\n");
 	ft_putstr_fd(info.map, 1);
 	write(1, "\n", 1);
+	printf ("x = %d\ny = %d\n", info.size_x, info.size_y);
+	printf ("===================\n");
 }
 
 //index = 0 -> print the map

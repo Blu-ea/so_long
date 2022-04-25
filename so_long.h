@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 05:43:57 by amiguez           #+#    #+#             */
-/*   Updated: 2022/04/25 15:02:56 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/04/25 16:09:44 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,13 @@ typedef struct s_long
 	t_map	info_map;
 }			t_long;
 
+typedef struct s_count
+{
+	int		e;
+	int		c;
+	int		p;
+}			t_count;
+
 // *************************** //
 
 //      main.c       //
@@ -45,7 +52,9 @@ void	ft_error(char *str, void *dump);
 //     parsec.c      //
 
 void	ft_parsec(int argc, char **argv, t_long *game);
+void	ft_parsec2(t_long *game, int fd);
 int		ft_has_wall(char *line, int len);
+int		ft_content_map(t_long game);
 
 // *************************** //
 // ********* debug.c ********* //
