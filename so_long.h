@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 05:43:57 by amiguez           #+#    #+#             */
-/*   Updated: 2022/04/25 16:09:44 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/04/27 17:22:04 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,18 @@
 typedef struct s_map
 {
 	char	*map;
-	int		size_x;
-	int		size_y;
+	int		x;
+	int		y;
 }			t_map;
 
 typedef struct s_long
 {
-	void	*ptr_mlx;
-	void	*ptr_win;
-	t_map	info_map;
+	void	*mlx;
+	void	*win;
+	void	*img;
+	char	*addr;
+	t_map	info;
+
 }			t_long;
 
 typedef struct s_count
@@ -41,6 +44,8 @@ typedef struct s_count
 	int		c;
 	int		p;
 }			t_count;
+
+// *************************** //
 
 // *************************** //
 
@@ -55,6 +60,10 @@ void	ft_parsec(int argc, char **argv, t_long *game);
 void	ft_parsec2(t_long *game, int fd);
 int		ft_has_wall(char *line, int len);
 int		ft_content_map(t_long game);
+
+//     reader.c      //
+
+void	ft_render_windows(t_long game);
 
 // *************************** //
 // ********* debug.c ********* //

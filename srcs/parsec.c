@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 11:28:07 by amiguez           #+#    #+#             */
-/*   Updated: 2022/04/25 17:24:02 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/04/27 17:19:58 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ void	ft_parsec(int argc, char **argv, t_long *game)
 	while (line[i] && line[i] != '\n')
 	{
 		if (line[i] != '1')
-			ft_error("error: map not valid 1(no wall on the top\n)", line);
+			ft_error("error: map not valid\n", line);
 		i++;
 	}
-	game -> info_map.size_x = i;
-	game -> info_map.map = ft_strdup(line);
+	game->info.x = i;
+	game->info.map = ft_strdup(line);
 	free(line);
 	ft_parsec2(game, fd);
 }
@@ -45,14 +45,14 @@ void	ft_parsec2(t_long *game, int fd)
 
 	full_wall = 0;
 	line = get_next_line(fd);
-	game -> info_map.size_y = 1;
+	game->info.y = 1;
 	while (line)
 	{
-		if (ft_has_wall(line, game -> info_map.size_x) == 1)
+		if (ft_has_wall(line, game->info.x) == 1)
 			ft_error("error: map not valid (not closed side/dif len)\n", line);
-		game -> info_map.map = ft_str_malloc_join(&game -> info_map.map, &line);
+		game->info.map = ft_str_malloc_join(&game->info.map, &line);
 		line = get_next_line(fd);
-		game -> info_map.size_y++;
+		game->info.y++;
 	}
 	if (full_wall == 1)
 		ft_error("error: map not valid (No wall on the bottom)\n", NULL);
@@ -92,13 +92,13 @@ int	ft_content_map(t_long game)
 	count.p = 0;
 	count.e = 0;
 	count.c = 0;
-	while (game.info_map.map[i])
+	while (game.info.map[i])
 	{
-		if (game.info_map.map[i] == 'C')
+		if (game.info.map[i] == 'C')
 			count.c++;
-		if (game.info_map.map[i] == 'P')
+		if (game.info.map[i] == 'P')
 			count.p++;
-		if (game.info_map.map[i] == 'E')
+		if (game.info.map[i] == 'E')
 			count.e++;
 		i++;
 	}
