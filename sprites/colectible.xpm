@@ -1,0 +1,43 @@
+
+/* XPM */
+static char *_651179082549[] = {
+/* columns rows colors chars-per-pixel */
+"32 32 4 1 ",
+"  c #623D00",
+". c #BC7400",
+"X c #D3D5D6",
+"o c #AC6B00",
+/* pixels */
+"  .... ... ....... .X..  ..XX...",
+" XX ....... X ..    . X.....X...",
+" XX........ .. . .. X .  .  X.. ",
+" XXX X.XXXXXXXXXXooooooo. ..X...",
+" .XXXX.XXXooooooXXXX.. .oooX ...",
+" ..X.XXXX. .    oo  XXXoX.XX... ",
+"  .XXXXX    oX oXooo  .XXXX...  ",
+"... XXXXXoX XooooX... XXXXX   . ",
+"  .. XXoX  oXXoX ...XXX . X   . ",
+"  . XXXXXXXoXXooooXXXXX.. X ..  ",
+" X..XXoXXXXXXX..XXX X.. X.X.. ..",
+".   XXooXXXXXXXXXXXXoX oooX ...X",
+"  XoX...X XXXXXXXoooooo  .X ooXX",
+"oo XX   XXXXXXXXXXooooo.oXXoXXX ",
+"  . Xooo  XXXXXXXXXXoooXXXXXX X.",
+"  . XX  oXXXXXXXXooXXXXX XX ..X.",
+"  ..XXoooooXXXX..XXX    .XX...X.",
+"    XXoooooX.X XXX.X..X .XX. XX.",
+" XoXoXooX XX oXXXooo....X.XXX...",
+"    XX  XXX. ...X.....X X.XX....",
+".. .XX.XXX  .X.. .XooooXXXX...  ",
+". ...XX XXoXooXXooX.X XXXXoooo..",
+"..  .XX.X  . .X  . .oXXXXX... . ",
+"..X.X.XXX    ooooXoXXXX X. .... ",
+".X..  XX.ooXX...X..XXXXX  .     ",
+". ...XXX .   ..  X..XXX. . . .  ",
+"X.X..XXXXXXXoXoo.XXXX.X. ooo .  ",
+"  ..XX.X X.XXXXXXooXXoooo . . . ",
+" ..XXX XX.. ...X.oooXXXXXXXX  XX",
+". XX. X... . .ooo   .XXXXXXXXXXX",
+"  X..  ..  .o   ooooooXooooo. . ",
+"  X ........ . .  .  ....   .  ."
+};

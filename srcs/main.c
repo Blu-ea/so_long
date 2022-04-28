@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 05:31:39 by amiguez           #+#    #+#             */
-/*   Updated: 2022/04/27 17:39:18 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/04/29 00:27:32 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ int	main(int argc, char **argv)
 
 	ft_parsec(argc, argv, &game);
 	debug(0, game);
-	ft_render_windows(game);
+	ft_init_xpm(&game);
+	game.mlx = mlx_init();
+	game.win = mlx_new_window(game.mlx, game.info.x * game.sprites.width,
+			game.info.y * game.sprites.height, "so_long");
+	ft_render_windows(game, game.sprites.width, game.sprites.height);
+	mlx_loop(game.mlx);
 	free(game.info.map);
 }

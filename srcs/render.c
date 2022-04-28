@@ -6,48 +6,60 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 17:40:03 by amiguez           #+#    #+#             */
-/*   Updated: 2022/04/27 18:05:51 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/04/29 00:26:13 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	ft_render_windows(t_long game)
+void	ft_render_windows(t_long game, int width, int height)
 {
-	void	*img_ptr;
-	int		i;
-	int		x;
-	int		y;
+	t_count		count;
 
-	i = 0;
-	x = 0;
-	y = 0;
-	game.mlx = mlx_init();
-	game.win = mlx_new_window(game.mlx, game.info.x * 32,
-			game.info.y * 32, "so_long");
-	img_ptr = mlx_xpm_file_to_image(game.mlx, "sprites/ground.xpm",
-			&x, &y);
-	x = 0;
-	y = 0;
-	while (game.info.map[i])
+	count.e = 0;
+	count.c = 0;
+	count.p = -1;
+	while (game.info.map[++count.p])
 	{
-		if (game.info.map[i] == '1')
+		if (game.info.map[count.p] == '1')
+			mlx_put_image_to_window(game.mlx, game.win, game.sprites.w,
+				count.c * width, count.e * height);
+		else if (game.info.map[count.p] == '0')
+			mlx_put_image_to_window(game.mlx, game.win, game.sprites.g,
+				count.c * width, count.e * height);
+		else if (game.info.map[count.p] == 'C')
+			mlx_put_image_to_window(game.mlx, game.win, game.sprites.c,
+				count.c * width, count.e * height);
+		else if (game.info.map[count.p] == 'P')
+			mlx_put_image_to_window(game.mlx, game.win, game.sprites.p,
+				count.c * width, count.e * height);
+		else if (game.info.map[count.p] == 'E')
+			mlx_put_image_to_window(game.mlx, game.win, game.sprites.e,
+				count.c * width, count.e * height);
+		else if (game.info.map[count.p] == '\n' )
 		{
-			mlx_put_image_to_window(game.mlx, game.win, img_ptr,
-				x * 32, y * 32);
-			x++;
+			count.c = -1;
+			count.e++;
 		}
-		else if (game.info.map[i] == '\n' )
-		{
-			x = 0;
-			y++;
-		}
-		else
-			x++;
-		i++;
+		count.c++;
 	}
-	// mlx_destroy_window(game.mlx, game.win);
-	// mlx_destroy_image(game.mlx, img_ptr);
-	// free(game.mlx);
-	mlx_loop(game.mlx);
+}
+
+void	ft_init_xpm(t_long *game)
+{
+	game->sprites.w = mlx_xpm_file_to_image(game->mlx,
+			"./sprites/wall.xpm",
+			&game->sprites.width, &game->sprites.height);
+	game->sprites.g = mlx_xpm_file_to_image(game->mlx,
+			"./sprites/ground.xpm",
+			&game->sprites.width, &game->sprites.height);
+	game->sprites.c = mlx_xpm_file_to_image(game->mlx,
+			"./sprites/colectible.xpm",
+			&game->sprites.width, &game->sprites.height);
+	game->sprites.p = mlx_xpm_file_to_image(game->mlx,
+			"./sprites/character.xpm",
+			&game->sprites.width, &game->sprites.height);
+	game->sprites.e = mlx_xpm_file_to_image(game->mlx,
+			"./sprites/exit.xpm",
+			&game->sprites.width, &game->sprites.height);
 }
