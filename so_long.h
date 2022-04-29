@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 05:43:57 by amiguez           #+#    #+#             */
-/*   Updated: 2022/04/29 00:22:00 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/04/29 04:41:28 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdlib.h> // exit , malloc , free
 # include <fcntl.h> // open , close
 # include <unistd.h> // write , read
-
+# include "./sl_key.h" // key define
 typedef struct s_map
 {
 	char	*map;
@@ -39,22 +39,23 @@ typedef struct s_sprites
 	int		height;
 }			t_sprites;
 
-typedef struct s_long
-{
-	void		*mlx;
-	void		*win;
-	void		*img;
-	char		*addr;
-	t_map		info;
-	t_sprites	sprites;
-}			t_long;
-
 typedef struct s_count
 {
 	int		e;
 	int		c;
 	int		p;
 }			t_count;
+
+typedef struct s_long
+{
+	void		*mlx;
+	void		*win;
+	char		*addr;
+	t_map		info;
+	t_sprites	sprites;
+	t_count		ecp;
+	int			move;
+}			t_long;
 
 // *************************** //
 
@@ -70,7 +71,7 @@ void	ft_error(char *str, void *dump);
 void	ft_parsec(int argc, char **argv, t_long *game);
 void	ft_parsec2(t_long *game, int fd);
 int		ft_has_wall(char *line, int len);
-int		ft_content_map(t_long game);
+int		ft_content_map(t_long *game);
 
 //     reader.c      //
 
@@ -79,7 +80,10 @@ void	ft_init_xpm(t_long *game);
 
 //     pressing.c    //
 
-void	ft_key_press(int keycode, t_long *game);
+void	my_hook(t_long *game);
+void	move_right(t_long *game);
+int		k_hooks(int key, t_long *game);
+int		k_exit(t_long *game);
 
 // *************************** //
 // ********* debug.c ********* //

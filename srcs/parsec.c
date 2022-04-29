@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 11:28:07 by amiguez           #+#    #+#             */
-/*   Updated: 2022/04/27 17:19:58 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/04/29 03:30:52 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_parsec2(t_long *game, int fd)
 	if (full_wall == 1)
 		ft_error("error: map not valid (No wall on the bottom)\n", NULL);
 	close(fd);
-	if (ft_content_map(*game) == 1)
+	if (ft_content_map(game) == 1)
 		ft_error("error: map not valid (wrong content)\n", NULL);
 }
 
@@ -83,7 +83,7 @@ int	ft_has_wall(char *line, int len)
 	return (0);
 }
 
-int	ft_content_map(t_long game)
+int	ft_content_map(t_long *game)
 {
 	int		i;
 	t_count	count;
@@ -92,16 +92,17 @@ int	ft_content_map(t_long game)
 	count.p = 0;
 	count.e = 0;
 	count.c = 0;
-	while (game.info.map[i])
+	while (game->info.map[i])
 	{
-		if (game.info.map[i] == 'C')
+		if (game->info.map[i] == 'C')
 			count.c++;
-		if (game.info.map[i] == 'P')
+		if (game->info.map[i] == 'P')
 			count.p++;
-		if (game.info.map[i] == 'E')
+		if (game->info.map[i] == 'E')
 			count.e++;
 		i++;
 	}
+	game->ecp.c = count.c;
 	if (count.c == 0 || count.p == 0 || count.e == 0)
 		return (1);
 	return (0);
