@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 11:28:07 by amiguez           #+#    #+#             */
-/*   Updated: 2022/04/29 03:30:52 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/05/11 04:44:04 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	ft_parsec2(t_long *game, int fd)
 	close(fd);
 	if (ft_content_map(game) == 1)
 		ft_error("error: map not valid (wrong content)\n", NULL);
+	game->mlx = mlx_init();
 }
 
 int	ft_has_wall(char *line, int len)

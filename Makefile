@@ -6,7 +6,7 @@
 #    By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/12 04:32:58 by amiguez           #+#    #+#              #
-#    Updated: 2022/04/29 03:30:08 by amiguez          ###   ########.fr        #
+#    Updated: 2022/05/11 05:56:47 by amiguez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ LST_SRCS	:=	main.c\
 				parsec.c\
 				render.c\
 				pressing.c\
+				move.c\
 				debug.c
 LST_OBJS	:=	$(LST_SRCS:.c=.o)
 LST_INCS	:=	so_long.h
@@ -44,7 +45,7 @@ MLIBX		:=	$(addprefix $(DIR_MLIBX)/, $(AR_MLIBX))
 
 
 CC			:=	gcc
-CFLAGS		:= #-Wall -Werror -Wextra
+CFLAGS		:= -Wall -Werror -Wextra
 
 # /////////////////////////////////
 
@@ -93,13 +94,13 @@ clean	:
 	make -C $(DIR_LIBFT) clean
 	make -C $(DIR_MLIBX) clean
 
-fclean	: clean
+fclean	:
+	rm -rf $(DIR_OBJS)
 	rm -rf $(NAME)
 	make -C $(DIR_LIBFT) fclean
+	make -C $(DIR_MLIBX) clean
 
 re		: fclean all
-	make -C $(DIR_LIBFT) re
-	make -C $(DIR_MLIBX) re
 
 .PHONY	: all clean fclean re $(LIBFT) $(MLIBX)
 # .SILENT :

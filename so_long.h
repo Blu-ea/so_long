@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 05:43:57 by amiguez           #+#    #+#             */
-/*   Updated: 2022/04/29 04:41:28 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/05/11 05:47:01 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ typedef struct s_long
 	void		*win;
 	char		*addr;
 	t_map		info;
-	t_sprites	sprites;
+	t_sprites	sprit;
 	t_count		ecp;
 	int			move;
 }			t_long;
@@ -80,10 +80,16 @@ void	ft_init_xpm(t_long *game);
 
 //     pressing.c    //
 
-void	my_hook(t_long *game);
-void	move_right(t_long *game);
-int		k_hooks(int key, t_long *game);
+void	my_loop(t_long *game);
+int		my_hook(int key, t_long *game);
 int		k_exit(t_long *game);
+
+//     move.c        //
+
+void	move_right(t_long *game);
+void	move_left(t_long *game);
+void	move_up(t_long *game);
+void	move_down(t_long *game);
 
 // *************************** //
 // ********* debug.c ********* //
