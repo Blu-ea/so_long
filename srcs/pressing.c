@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 01:56:01 by amiguez           #+#    #+#             */
-/*   Updated: 2022/05/11 05:54:02 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/05/11 06:41:49 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	my_loop(t_long *game)
 
 int	my_hook(int key, t_long *game)
 {
-	printf("key: %d\n", key);
 	if (key == K_D || key == K_RIGHT)
 		move_right(game);
 	if (key == K_A || key == K_LEFT)
