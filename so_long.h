@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 05:43:57 by amiguez           #+#    #+#             */
-/*   Updated: 2022/05/11 05:47:01 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/05/13 19:18:39 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_map
 	char	*map;
 	int		x;
 	int		y;
+	char	*name;
 }			t_map;
 
 typedef struct s_sprites
@@ -65,18 +66,23 @@ typedef struct s_long
 
 int		main(int argc, char **argv);
 void	ft_error(char *str, void *dump);
+void	k_end(t_long *game);
+void	ft_p_putnbr_fd(int n, int fd);
 
 //     parsec.c      //
 
 void	ft_parsec(int argc, char **argv, t_long *game);
-void	ft_parsec2(t_long *game, int fd);
+void	ft_parsec2(t_long *game, int fd, char **argv);
 int		ft_has_wall(char *line, int len);
 int		ft_content_map(t_long *game);
+int		is_full_wall(char *line);
 
-//     reader.c      //
+//     render.c      //
 
 void	ft_render_windows(t_long game, int width, int height);
 void	ft_init_xpm(t_long *game);
+void	ft_choise_tile(t_long game, char tile, int c, int e);
+void	mlx_myput_string(t_long game);
 
 //     pressing.c    //
 

@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 05:46:17 by amiguez           #+#    #+#             */
-/*   Updated: 2022/05/11 06:43:21 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/05/11 08:03:16 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	move_right(t_long *game)
 		write(1, "There is still some colectibles to get\n", 40);
 	else if (game->info.map[i + 1] == 'E' && game->ecp.c == 0)
 	{
-		k_exit(game);
 		ft_printf("moves: %d\n", ++game->move);
+		k_end(game);
 	}
 }
 
@@ -59,8 +59,8 @@ void	move_left(t_long *game)
 		write(1, "There is still some colectibles to get\n", 40);
 	else if (game->info.map[i - 1] == 'E' && game->ecp.c == 0)
 	{
-		k_exit(game);
 		ft_printf("moves: %d\n", ++game->move);
+		k_end(game);
 	}
 }
 
@@ -86,8 +86,8 @@ void	move_up(t_long *game)
 		write(1, "There is still some colectibles to get\n", 40);
 	else if (game->info.map[i - game->info.x - 1] == 'E' && game->ecp.c == 0)
 	{
-		k_exit(game);
 		ft_printf("moves: %d\n", ++game->move);
+		k_end(game);
 	}
 }
 
@@ -113,7 +113,8 @@ void	move_down(t_long *game)
 		write(1, "There is still some colectibles to get\n", 40);
 	else if (game->info.map[i + game->info.x + 1] == 'E' && game->ecp.c == 0)
 	{
-		k_exit(game);
 		ft_printf("moves: %d\n", ++game->move);
+		k_end(game);
 	}
 }
+

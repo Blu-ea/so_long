@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 17:40:03 by amiguez           #+#    #+#             */
-/*   Updated: 2022/05/11 05:45:35 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/05/13 19:23:18 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,70 @@
 
 void	ft_render_windows(t_long game, int width, int height)
 {
-	t_count		count;
+	t_count		i;
 
-	count.e = 0;
-	count.c = 0;
-	count.p = -1;
-	while (game.info.map[++count.p])
+	i.e = 0;
+	i.c = 0;
+	i.p = -1;
+	while (game.info.map[++i.p])
 	{
-		if (game.info.map[count.p] == '1')
-			mlx_put_image_to_window(game.mlx, game.win, game.sprit.w,
-				count.c * width, count.e * height);
-		else if (game.info.map[count.p] == '0')
-			mlx_put_image_to_window(game.mlx, game.win, game.sprit.g,
-				count.c * width, count.e * height);
-		else if (game.info.map[count.p] == 'C')
-			mlx_put_image_to_window(game.mlx, game.win, game.sprit.c,
-				count.c * width, count.e * height);
-		else if (game.info.map[count.p] == 'P')
-			mlx_put_image_to_window(game.mlx, game.win, game.sprit.p,
-				count.c * width, count.e * height);
-		else if (game.info.map[count.p] == 'E')
-			mlx_put_image_to_window(game.mlx, game.win, game.sprit.e,
-				count.c * width, count.e * height);
-		else if (game.info.map[count.p] == '\n' )
+		if (game.info.map[i.p] == '1')
+			ft_choise_tile(game, '1', i.c, i.e);
+		else if (game.info.map[i.p] == '0')
+			ft_choise_tile(game, '0', i.c, i.e);
+		else if (game.info.map[i.p] == 'C')
+			ft_choise_tile(game, 'C', i.c, i.e);
+		else if (game.info.map[i.p] == 'P')
+			ft_choise_tile(game, 'P', i.c, i.e);
+		else if (game.info.map[i.p] == 'E')
+			ft_choise_tile(game, 'E', i.c, i.e);
+		else if (game.info.map[i.p] == '\n' )
 		{
-			count.c = -1;
-			count.e++;
+			i.c = -1;
+			i.e++;
 		}
-		count.c++;
+		i.c++;
 	}
+}
+
+void	ft_choise_tile(t_long game, char tile, int c, int e)
+{
+	if (tile == '1')
+		mlx_put_image_to_window(game.mlx, game.win, game.sprit.w,
+			c * game.sprit.width, e * game.sprit.height);
+	else if (tile == '0')
+		mlx_put_image_to_window(game.mlx, game.win, game.sprit.g,
+			c * game.sprit.width, e * game.sprit.height);
+	else if (tile == 'C')
+		mlx_put_image_to_window(game.mlx, game.win, game.sprit.c,
+			c * game.sprit.width, e * game.sprit.height);
+	else if (tile == 'P')
+		mlx_put_image_to_window(game.mlx, game.win, game.sprit.p,
+			c * game.sprit.width, e * game.sprit.height);
+	else if (tile == 'E')
+		mlx_put_image_to_window(game.mlx, game.win, game.sprit.e,
+			c * game.sprit.width, e * game.sprit.height);
+	mlx_myput_string(game);
+}
+
+void	mlx_myput_string(t_long game)
+{
+	char	*str;
+	char	*move;
+
+	str = ft_strdup(" Move=");
+	move = ft_itoa(game.move);
+	str = ft_str_malloc_join(&str, &move);
+	mlx_string_put(game.mlx, game.win, 5, game.sprit.height * game.info.y,
+		0xFFFFFF, str);
+	free (str);
+	mlx_string_put(game.mlx, game.win, 10, 10, 0xFFFFFF, "Press esc to quit");
+	str = ft_strdup(" Score=");
+	move = ft_itoa(game.ecp.c);
+	str = ft_str_malloc_join(&str, &move);
+	mlx_string_put(game.mlx, game.win, 5, game.sprit.height * game.info.y - 15,
+		0xFFFFFF, str);
+	free (str);
 }
 
 void	ft_init_xpm(t_long *game)

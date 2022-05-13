@@ -6,7 +6,7 @@
 #    By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/12 04:32:58 by amiguez           #+#    #+#              #
-#    Updated: 2022/05/11 05:56:47 by amiguez          ###   ########.fr        #
+#    Updated: 2022/05/11 11:43:04 by amiguez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ MLIBX		:=	$(addprefix $(DIR_MLIBX)/, $(AR_MLIBX))
 
 
 CC			:=	gcc
-CFLAGS		:= -Wall -Werror -Wextra
+CFLAGS		:= #-Wall -Werror -Wextra
 
 # /////////////////////////////////
 
@@ -94,13 +94,16 @@ clean	:
 	make -C $(DIR_LIBFT) clean
 	make -C $(DIR_MLIBX) clean
 
-fclean	:
+fclean	: clean_score
 	rm -rf $(DIR_OBJS)
 	rm -rf $(NAME)
 	make -C $(DIR_LIBFT) fclean
 	make -C $(DIR_MLIBX) clean
 
 re		: fclean all
+
+clean_score : 
+	rm -rf save/maps/*.txt
 
 .PHONY	: all clean fclean re $(LIBFT) $(MLIBX)
 # .SILENT :

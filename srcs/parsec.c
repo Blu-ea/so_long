@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 11:28:07 by amiguez           #+#    #+#             */
-/*   Updated: 2022/05/11 04:44:04 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/05/11 11:33:01 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,30 +35,35 @@ void	ft_parsec(int argc, char **argv, t_long *game)
 	game->info.x = i;
 	game->info.map = ft_strdup(line);
 	free(line);
-	ft_parsec2(game, fd);
+	ft_parsec2(game, fd, argv);
 }
 
-void	ft_parsec2(t_long *game, int fd)
+void	ft_parsec2(t_long *game, int fd, char **argv)
 {
 	int		full_wall;
 	char	*line;
 
-	full_wall = 0;
+	// full_wall = 0;
 	line = get_next_line(fd);
 	game->info.y = 1;
 	while (line)
 	{
+		full_wall = is_full_wall(line);
 		if (ft_has_wall(line, game->info.x) == 1)
 			ft_error("error: map not valid (not closed side/dif len)\n", line);
 		game->info.map = ft_str_malloc_join(&game->info.map, &line);
 		line = get_next_line(fd);
 		game->info.y++;
 	}
-	if (full_wall == 1)
+	if (full_wall == 0)
 		ft_error("error: map not valid (No wall on the bottom)\n", NULL);
 	close(fd);
 	if (ft_content_map(game) == 1)
 		ft_error("error: map not valid (wrong content)\n", NULL);
+	game->info.name = ft_strjoin("save/", argv[1]);
+	printf ("%s\n", game->info.name);
+	if (game->info.name == NULL)
+		ft_error("error\n", NULL);
 	game->mlx = mlx_init();
 }
 
@@ -104,7 +109,21 @@ int	ft_content_map(t_long *game)
 		i++;
 	}
 	game->ecp.c = count.c;
-	if (count.c == 0 || count.p == 0 || count.e == 0)
+	if (count.c == 0 || count.p != 1 || count.e == 0)
 		return (1);
 	return (0);
+}
+
+int	is_full_wall(char *line)
+{
+	int	i;
+
+	i = 0;
+	while (line[i])
+	{
+		if (line[i] != '1')
+			return (0);
+		i++;
+	}
+	return (1);
 }

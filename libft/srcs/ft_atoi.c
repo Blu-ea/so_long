@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 12:44:26 by amiguez           #+#    #+#             */
-/*   Updated: 2022/04/25 13:49:30 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/05/11 08:42:00 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	ft_atoi(const char *str)
 	long int	ret_int;
 	int			minus;
 
+	if (str == NULL)
+		return (0);
 	ret_int = 0;
 	i = 0;
 	minus = 1;
