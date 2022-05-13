@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 11:28:07 by amiguez           #+#    #+#             */
-/*   Updated: 2022/05/11 11:33:01 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/05/13 19:40:00 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	ft_parsec2(t_long *game, int fd, char **argv)
 	int		full_wall;
 	char	*line;
 
-	// full_wall = 0;
 	line = get_next_line(fd);
 	game->info.y = 1;
 	while (line)

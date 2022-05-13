@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 05:31:39 by amiguez           #+#    #+#             */
-/*   Updated: 2022/05/13 19:31:19 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/05/13 19:39:13 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,30 +34,29 @@ int	main(int argc, char **argv)
 
 void	k_end(t_long *game)
 {
-	int		fd;
 	char	*h_sc;
-	int		i;
+	t_count	i;
 
-	i = 0;
-	while (game->info.name[i] != '.')
+	i.c = 0;
+	while (game->info.name[i.c] != '.')
 	{
-		i++;
+		i.c++;
 	}
-	game->info.name[i + 1] = 't';
-	game->info.name[i + 2] = 'x';
-	game->info.name[i + 3] = 't';
-	fd = open(game->info.name, O_CREAT | O_RDWR, 0666);
-	if (fd == -1)
+	game->info.name[i.c + 1] = 't';
+	game->info.name[i.c + 2] = 'x';
+	game->info.name[i.c + 3] = 't';
+	i.e = open(game->info.name, O_CREAT | O_RDWR, 0666);
+	if (i.e == -1)
 		k_exit(game);
-	h_sc = get_next_line(fd);
+	h_sc = get_next_line(i.e);
 	if (ft_atoi(h_sc) > game->move || h_sc == NULL || ft_atoi(h_sc) == 0)
 	{
-		ft_p_putnbr_fd(game->move, fd);
+		ft_p_putnbr_fd(game->move, i.e);
 		ft_printf("New hight score: %d\n", game->move);
 	}
-	if(h_sc)
+	if (h_sc)
 		ft_printf("Best score was: %s", h_sc);
-	close(fd);
+	close(i.e);
 	free(h_sc);
 	k_exit(game);
 }

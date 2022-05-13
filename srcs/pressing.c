@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 01:56:01 by amiguez           #+#    #+#             */
-/*   Updated: 2022/05/13 18:35:59 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/05/13 19:40:05 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,5 @@ int	k_exit(t_long *game)
 	mlx_destroy_image(game->mlx, game->sprit.e);
 	mlx_destroy_image(game->mlx, game->sprit.c);
 	free(game->info.map);
-	// free(game->mlx);
 	exit(0);
 }

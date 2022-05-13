@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 17:40:03 by amiguez           #+#    #+#             */
-/*   Updated: 2022/05/13 19:23:18 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/05/13 19:40:34 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,8 @@ void	ft_init_xpm(t_long *game)
 	game->sprit.e = mlx_xpm_file_to_image(game->mlx,
 			"sprites/exit.xpm",
 			&game->sprit.width, &game->sprit.height);
-	if (game->sprit.w == NULL || game->sprit.g == NULL ||
-		game->sprit.c == NULL || game->sprit.p == NULL || game->sprit.e == NULL)
+	if (game->sprit.w == NULL || game->sprit.g == NULL
+		|| game->sprit.c == NULL || game->sprit.p == NULL
+		|| game->sprit.e == NULL)
 		ft_error("Error:sprite not found\n", game->mlx);
 }
