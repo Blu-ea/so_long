@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 05:31:39 by amiguez           #+#    #+#             */
-/*   Updated: 2022/05/13 19:39:13 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/05/13 19:48:44 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	main(int argc, char **argv)
 	ft_init_xpm(&game);
 	game.win = mlx_new_window(game.mlx, game.info.x * game.sprit.width,
 			game.info.y * game.sprit.height, "so_long");
-	printf("mlx = %p\n", game.mlx);
 	my_loop(&game);
 }
 

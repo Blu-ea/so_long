@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 11:28:07 by amiguez           #+#    #+#             */
-/*   Updated: 2022/05/13 19:40:00 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/05/13 19:49:40 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	ft_parsec2(t_long *game, int fd, char **argv)
 	if (ft_content_map(game) == 1)
 		ft_error("error: map not valid (wrong content)\n", NULL);
 	game->info.name = ft_strjoin("save/", argv[1]);
-	printf ("%s\n", game->info.name);
 	if (game->info.name == NULL)
 		ft_error("error\n", NULL);
 	game->mlx = mlx_init();
