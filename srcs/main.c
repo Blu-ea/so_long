@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 05:31:39 by amiguez           #+#    #+#             */
-/*   Updated: 2022/05/13 19:48:44 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/05/15 11:17:35 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	k_end(t_long *game)
 		ft_printf("New hight score: %d\n", game->move);
 	}
 	if (h_sc)
-		ft_printf("Best score was: %s", h_sc);
+		ft_printf("Best score was: %d", ft_atoi(h_sc));
 	close(i.e);
 	free(h_sc);
 	k_exit(game);
@@ -63,9 +63,18 @@ void	k_end(t_long *game)
 void	ft_p_putnbr_fd(int n, int fd)
 {
 	char	*str;
+	int		i;
+	char	*temp;
 
 	str = ft_itoa(n);
-	str = ft_strjoin_gnl(str, "\n");
+	i = 12 - ft_strlen(str);
+	while (i)
+	{
+		temp = ft_strjoin("0", str);
+		free(str);
+		str = temp;
+		i--;
+	}
 	pwrite(fd, str, ft_strlen(str), 0);
 	free(str);
 }
