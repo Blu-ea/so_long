@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 11:28:07 by amiguez           #+#    #+#             */
-/*   Updated: 2022/05/13 19:49:40 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/05/16 15:57:43 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	ft_parsec(int argc, char **argv, t_long *game)
 	if (fd == -1)
 		ft_error("error: map not found\n", NULL);
 	line = get_next_line(fd);
+	if (line == NULL)
+		ft_error("error: map not found\n", NULL);
 	while (line[i] && line[i] != '\n')
 	{
 		if (line[i] != '1')
