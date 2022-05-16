@@ -6,7 +6,7 @@
 #    By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/09 06:10:49 by amiguez           #+#    #+#              #
-#    Updated: 2022/04/25 16:10:38 by amiguez          ###   ########.fr        #
+#    Updated: 2022/05/16 10:35:53 by amiguez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -120,7 +120,7 @@ endif
 
 $(DIR_OBJS)/%.o: $(DIR_SRCS)/%.c $(INCS) Makefile | $(DIR_OBJS)
 	$(CC) $(CFLAGS) -I $(DIR_INCS) -c $< -o $@
-	printf "$(ERASE)Compiling libft : $(BLUE) $<$(END)"
+	printf "$(ERASE)Compiling libft : $(BLUE)$<$(END)"
 
 $(DIR_OBJS):
 	mkdir -p $(DIR_OBJS)

@@ -6,7 +6,7 @@
 #    By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/12 04:32:58 by amiguez           #+#    #+#              #
-#    Updated: 2022/05/15 12:00:52 by amiguez          ###   ########.fr        #
+#    Updated: 2022/05/16 10:16:05 by amiguez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ MLIBX		:=	$(addprefix $(DIR_MLIBX)/, $(AR_MLIBX))
 
 
 CC			:=	gcc
-CFLAGS		:= #-Wall -Werror -Wextra
+CFLAGS		:= -Wall -Werror -Wextra
 
 # /////////////////////////////////
 

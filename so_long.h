@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 05:43:57 by amiguez           #+#    #+#             */
-/*   Updated: 2022/05/13 19:18:39 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/05/16 10:15:37 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int		is_full_wall(char *line);
 
 //     render.c      //
 
-void	ft_render_windows(t_long game, int width, int height);
+void	ft_render_windows(t_long game);
 void	ft_init_xpm(t_long *game);
 void	ft_choise_tile(t_long game, char tile, int c, int e);
 void	mlx_myput_string(t_long game);

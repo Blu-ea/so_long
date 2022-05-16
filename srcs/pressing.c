@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 01:56:01 by amiguez           #+#    #+#             */
-/*   Updated: 2022/05/13 19:40:05 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/05/16 10:13:43 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	my_loop(t_long *game)
 {
-	ft_render_windows(*game, game->sprit.width, game->sprit.height);
+	ft_render_windows(*game);
 	mlx_hook(game->win, 2, 0, my_hook, game);
 	mlx_hook(game->win, 17, 0, k_exit, game);
 	mlx_loop(game->mlx);
@@ -32,7 +32,7 @@ int	my_hook(int key, t_long *game)
 		move_down(game);
 	if (key == K_ESC)
 		k_exit(game);
-	ft_render_windows(*game, game->sprit.width, game->sprit.height);
+	ft_render_windows(*game);
 	return (0);
 }
 

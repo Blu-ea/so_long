@@ -6,13 +6,13 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 17:40:03 by amiguez           #+#    #+#             */
-/*   Updated: 2022/05/13 19:40:34 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/05/16 10:13:49 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	ft_render_windows(t_long game, int width, int height)
+void	ft_render_windows(t_long game)
 {
 	t_count		i;
 
