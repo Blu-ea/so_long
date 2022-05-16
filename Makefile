@@ -6,7 +6,7 @@
 #    By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/12 04:32:58 by amiguez           #+#    #+#              #
-#    Updated: 2022/05/16 10:16:05 by amiguez          ###   ########.fr        #
+#    Updated: 2022/05/16 10:52:15 by amiguez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,7 @@ LST_SRCS	:=	main.c\
 				parsec.c\
 				render.c\
 				pressing.c\
-				move.c\
-				debug.c
+				move.c
 LST_OBJS	:=	$(LST_SRCS:.c=.o)
 LST_INCS	:=	so_long.h
 AR_LIBFT	:=	libft.a
@@ -74,7 +73,8 @@ all			:	$(NAME)
 
 $(NAME)		:	$(OBJS) $(LIBFT) $(MLIBX)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLIBX) -framework OpenGL -framework AppKit -v -o $(NAME)
-	printf "$(GREEN)$(BOLD)$(NAME)$(END)$(GREY) has been compiled$(END)\n"
+	printf "$(GREEN)$(BOLD)$(NAME)$(END)$(WHITE) has been compiled$(END)\n"
+
 ifeq ($(NORMINETTE),$(NORMITEST))
 	printf "$(GREEN)Everything is ok\n$(END)"
 else
