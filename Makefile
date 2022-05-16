@@ -6,7 +6,7 @@
 #    By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/12 04:32:58 by amiguez           #+#    #+#              #
-#    Updated: 2022/05/11 11:43:04 by amiguez          ###   ########.fr        #
+#    Updated: 2022/05/15 12:00:52 by amiguez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,9 +74,16 @@ all			:	$(NAME)
 
 $(NAME)		:	$(OBJS) $(LIBFT) $(MLIBX)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLIBX) -framework OpenGL -framework AppKit -v -o $(NAME)
+	printf "$(GREEN)$(BOLD)$(NAME)$(END)$(GREY) has been compiled$(END)\n"
+ifeq ($(NORMINETTE),$(NORMITEST))
+	printf "$(GREEN)Everything is ok\n$(END)"
+else
+	printf "$(RED)$(SUR)THERE IS AN ERROR WITH NORMINETTE IN SO_LONG FILES !!$(END)\n"
+endif
 
 $(DIR_OBJS)/%.o	:	$(DIR_SRCS)/%.c $(INCS) Makefile | $(DIR_OBJS)
 	$(CC) $(CFLAGS) -Imlx -c $< -o $@
+	printf "$(ERASE)Compiling So_Long : $(BLUE)$(BOLD)$<$(END)$(GREY)$(END)"
 
 $(DIR_OBJS)	:
 	mkdir -p $@
@@ -93,12 +100,14 @@ clean	:
 	rm -rf $(DIR_OBJS)
 	make -C $(DIR_LIBFT) clean
 	make -C $(DIR_MLIBX) clean
+	printf "$(CYAN) /!\ $(END)Erasing .o in So_long$(CYAN) /!\ \n$(END)"
 
 fclean	: clean_score
 	rm -rf $(DIR_OBJS)
 	rm -rf $(NAME)
 	make -C $(DIR_LIBFT) fclean
 	make -C $(DIR_MLIBX) clean
+	printf "$(RED) /!\ $(END)Erasing $(NAME)$(RED) /!\ \n$(END)"
 
 re		: fclean all
 
@@ -106,4 +115,4 @@ clean_score :
 	rm -rf save/maps/*.txt
 
 .PHONY	: all clean fclean re $(LIBFT) $(MLIBX)
-# .SILENT :
+.SILENT :
