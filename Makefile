@@ -6,7 +6,7 @@
 #    By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/12 04:32:58 by amiguez           #+#    #+#              #
-#    Updated: 2022/05/16 10:52:15 by amiguez          ###   ########.fr        #
+#    Updated: 2022/05/18 16:37:07 by amiguez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,7 @@ NORMINETTE	=	$(shell norminette $(SRCS) $(INCS) | grep -i 'Error!')
 
 all			:	$(NAME)
 
-$(NAME)		:	$(OBJS) $(LIBFT) $(MLIBX)
+$(NAME)		:	$(OBJS) | $(LIBFT) $(MLIBX)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLIBX) -framework OpenGL -framework AppKit -v -o $(NAME)
 	printf "$(GREEN)$(BOLD)$(NAME)$(END)$(WHITE) has been compiled$(END)\n"
 
