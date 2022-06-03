@@ -39,6 +39,7 @@ void	ft_parsec(int argc, char **argv, t_long *game)
 	game->info.x = i;
 	game->info.map = ft_strdup(line);
 	free(line);
+	game->move = 0;
 	ft_parsec2(game, fd, argv);
 }
 
