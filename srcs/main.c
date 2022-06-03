@@ -6,14 +6,16 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 05:31:39 by amiguez           #+#    #+#             */
-/*   Updated: 2022/05/15 11:17:35 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/06/03 14:39:49 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	ft_error(char *str, void *dump)
+void	ft_error(char *str, void *dump, void *dump2)
 {
+	if (dump2 != NULL)
+		free(dump2);
 	if (dump != NULL)
 		free(dump);
 	ft_putstr_fd(str, 2);
@@ -28,6 +30,11 @@ int	main(int argc, char **argv)
 	ft_init_xpm(&game);
 	game.win = mlx_new_window(game.mlx, game.info.x * game.sprit.width,
 			game.info.y * game.sprit.height, "so_long");
+	if (game.win == NULL)
+	{
+		ft_error_xpm(&game);
+		ft_error("error: mlx_new_window\n", game.info.name, game.info.map);
+	}
 	my_loop(&game);
 }
 
@@ -77,4 +84,21 @@ void	ft_p_putnbr_fd(int n, int fd)
 	}
 	pwrite(fd, str, ft_strlen(str), 0);
 	free(str);
+}
+
+int	ft_ber(char *str)
+{
+	int	i;
+	int	len;
+
+	i = 0;
+	len = ft_strlen(str);
+	while (i < len - 3)
+	{
+		if (str[i] == '.' && str[i + 1] == 'b' && str[i + 2] == 'e'
+			&& str[i + 3] == 'r')
+			return (1);
+		i++;
+	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 11:28:07 by amiguez           #+#    #+#             */
-/*   Updated: 2022/05/18 16:31:31 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/06/03 14:39:22 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,19 @@ void	ft_parsec(int argc, char **argv, t_long *game)
 
 	i = 0;
 	if (argc != 2)
-		ft_error("usage: ./so_long map_file\n", NULL);
+		ft_error("usage: ./so_long map_file\n", NULL, NULL);
+	if (ft_ber(argv[1]) == 0)
+		ft_error("error: map_file is not a .ber file\n", NULL, NULL);
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
-		ft_error("error: map not found\n", NULL);
+		ft_error("error: map not found\n", NULL, NULL);
 	line = get_next_line(fd);
 	if (line == NULL)
-		ft_error("error: map empty\n", NULL);
+		ft_error("error: map empty\n", NULL, NULL);
 	while (line[i] && line[i] != '\n')
 	{
 		if (line[i] != '1')
-			ft_error("error: map not valid\n", line);
+			ft_error("error: map not valid\n", line, NULL);
 		i++;
 	}
 	game->info.x = i;
@@ -51,20 +53,22 @@ void	ft_parsec2(t_long *game, int fd, char **argv)
 	{
 		full_wall = is_full_wall(line);
 		if (ft_has_wall(line, game->info.x) == 1)
-			ft_error("error: map not valid (not closed side/dif len)\n", line);
+			ft_error("error: map not valid\n", line, NULL);
 		game->info.map = ft_str_malloc_join(&game->info.map, &line);
 		line = get_next_line(fd);
 		game->info.y++;
 	}
 	if (full_wall == 0)
-		ft_error("error: map not valid (No wall on the bottom)\n", NULL);
+		ft_error("error: map not valid\n", game->info.map, NULL);
 	close(fd);
 	if (ft_content_map(game) == 1)
-		ft_error("error: map not valid (wrong content)\n", NULL);
+		ft_error("error: map not valid (wrong content)\n", game->info.map, NULL);
 	game->info.name = ft_strjoin("save/", argv[1]);
 	if (game->info.name == NULL)
-		ft_error("error\n", NULL);
+		ft_error("error\n", game->info.map, game->info.name);
 	game->mlx = mlx_init();
+	if (game->mlx == NULL)
+		ft_error("error: mlx init\n", game->info.map, game->info.name);
 }
 
 int	ft_has_wall(char *line, int len)

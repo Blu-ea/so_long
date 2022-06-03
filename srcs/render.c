@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 17:40:03 by amiguez           #+#    #+#             */
-/*   Updated: 2022/05/16 10:13:49 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/06/03 14:27:45 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,10 +95,27 @@ void	ft_init_xpm(t_long *game)
 			"sprites/character.xpm",
 			&game->sprit.width, &game->sprit.height);
 	game->sprit.e = mlx_xpm_file_to_image(game->mlx,
-			"sprites/exit.xpm",
+			"sprites/exit.XPM",
 			&game->sprit.width, &game->sprit.height);
 	if (game->sprit.w == NULL || game->sprit.g == NULL
 		|| game->sprit.c == NULL || game->sprit.p == NULL
 		|| game->sprit.e == NULL)
-		ft_error("Error:sprite not found\n", game->mlx);
+	{
+		ft_error_xpm(game);
+		ft_error("Error:sprite not found\n", game->info.map, game->info.name);
+	}
+}
+
+void	ft_error_xpm(t_long *game)
+{
+	if (game->sprit.w != NULL)
+		mlx_destroy_image(game->mlx, game->sprit.w);
+	if (game->sprit.g != NULL)
+		mlx_destroy_image(game->mlx, game->sprit.g);
+	if (game->sprit.c != NULL)
+		mlx_destroy_image(game->mlx, game->sprit.c);
+	if (game->sprit.p != NULL)
+		mlx_destroy_image(game->mlx, game->sprit.p);
+	if (game->sprit.e != NULL)
+		mlx_destroy_image(game->mlx, game->sprit.e);
 }

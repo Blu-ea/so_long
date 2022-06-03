@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 05:43:57 by amiguez           #+#    #+#             */
-/*   Updated: 2022/05/16 10:15:37 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/06/03 14:32:47 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,10 @@ typedef struct s_long
 //      main.c       //
 
 int		main(int argc, char **argv);
-void	ft_error(char *str, void *dump);
+void	ft_error(char *str, void *dump, void *dump2);
 void	k_end(t_long *game);
 void	ft_p_putnbr_fd(int n, int fd);
+int		ft_ber(char *srt);
 
 //     parsec.c      //
 
@@ -83,6 +84,7 @@ void	ft_render_windows(t_long game);
 void	ft_init_xpm(t_long *game);
 void	ft_choise_tile(t_long game, char tile, int c, int e);
 void	mlx_myput_string(t_long game);
+void	ft_error_xpm(t_long *game);
 
 //     pressing.c    //
 
