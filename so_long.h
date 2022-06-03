@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 05:43:57 by amiguez           #+#    #+#             */
-/*   Updated: 2022/06/03 14:32:47 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/06/03 15:44:40 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ typedef struct s_long
 {
 	void		*mlx;
 	void		*win;
-	char		*addr;
 	t_map		info;
 	t_sprites	sprit;
 	t_count		ecp;
