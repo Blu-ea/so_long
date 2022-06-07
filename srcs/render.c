@@ -6,7 +6,7 @@
 /*   By: amiguez <amiguez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 17:40:03 by amiguez           #+#    #+#             */
-/*   Updated: 2022/06/03 14:27:45 by amiguez          ###   ########.fr       */
+/*   Updated: 2022/06/03 15:56:11 by amiguez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	ft_init_xpm(t_long *game)
 			"sprites/character.xpm",
 			&game->sprit.width, &game->sprit.height);
 	game->sprit.e = mlx_xpm_file_to_image(game->mlx,
-			"sprites/exit.XPM",
+			"sprites/exit.xpm",
 			&game->sprit.width, &game->sprit.height);
 	if (game->sprit.w == NULL || game->sprit.g == NULL
 		|| game->sprit.c == NULL || game->sprit.p == NULL
